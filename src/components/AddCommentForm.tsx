@@ -22,7 +22,7 @@ const AddCommnetForm = ({
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { user } = useUser();
   const api = axios.create({
-    baseURL: "http://localhost:8000",
+    baseURL: "https://full-stack-blog-with-react-and-node-js.onrender.com",
   });
 
   const addComment = async (e: React.FormEvent) => {
