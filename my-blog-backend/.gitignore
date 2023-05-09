@@ -1,0 +1,5 @@
+node_modules
+mongo-db-data
+.env
+app.yaml
+prod-env.yaml
