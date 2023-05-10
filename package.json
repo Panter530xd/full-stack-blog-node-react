@@ -1,5 +1,9 @@
 {
   "scripts": {
-    "postinstall": "cd my-blog && npm install && npm run build && ./node_modules/.bin/serve -s build && cd ../my-blog-backend && npm install && npm start"
+    "start": "cd my-blog-backend && npm start",
+    "build": "cd my-blog && npm install && npm run build && cd ../my-blog-backend && npm install && npm run build && cd ..",
+    "preinstall": "cd my-blog-backend && npm install -g nodemon && cd ..",
+    "dev": "cd my-blog-backend && nodemon",
+    "postinstall": "npm run build && cd my-blog-backend && npm start"
   }
 }
