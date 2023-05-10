@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "postinstall": "cd my-blog && npm install && npm run build && cd ../my-blog-backend && npm install"
+    "postinstall": "cd my-blog && npm install && npm run build && cd ../my-blog-backend && npm install && npm start"
   }
 }
