@@ -2,12 +2,8 @@ import admin from "firebase-admin";
 import express from "express";
 import { db, connectToDb } from "./db.js";
 import cors from "cors";
-import path from "path";
 import "dotenv/config";
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 const credentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
 admin.initializeApp({
   credential: admin.credential.cert(credentials),
@@ -15,11 +11,6 @@ admin.initializeApp({
 const app = express();
 app.use(express.json());
 app.use(cors());
-
-app.use(express.static(path.join(__dirname, "../dist")));
-app.get(/^(?!\/api).+/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/index.html"));
-});
 
 app.use(async (req, res, next) => {
   const { authtoken } = req.headers;
