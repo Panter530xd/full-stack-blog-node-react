@@ -3,32 +3,47 @@ const AboutPage = () => {
     <>
       <div className="py-10">
         <h2 className="text-4xl font-bold py-4">About Me</h2>
-        <p>
-          Welcome to my blog! Proin congue ligula id risus posuere, vel eleifend
-          ex egestas. Sed in turpis leo. Aliquam malesuada in massa tincidunt
-          egestas. Nam consectetur varius turpis, non porta arcu porttitor non.
-          In tincidunt vulputate nulla quis egestas. Ut eleifend ut ipsum non
-          fringilla. Praesent imperdiet nulla nec est luctus, at sodales purus
-          euismod.
+        <p className="text-lg">
+          Hi there! My name is{" "}
+          <span className="font-bold text-xl">Boban Senikj</span>, and I'm a
+          front-end developer specializing in React, Next.js, TypeScript,
+          JavaScript, Tailwind CSS, CSS, SCSS, Bootstrap, Ajax, and HTML. I also
+          have experience with back-end technologies such as Node.js, Express,
+          Supabase, Planet Scale, and MongoDB. Welcome to my blog, where I share
+          my experiences and insights on various topics related to technology
+          and software development.
         </p>
         <p>
-          Donec vel mauris lectus. Etiam nec lectus urna. Sed sodales ultrices
-          dapibus. Nam blandit tristique risus, eget accumsan nisl interdum eu.
-          Aenean ac accumsan nisi. Nunc vel pulvinar diam. Nam eleifend egestas
-          viverra. Donec finibus lectus sed lorem ultricies, eget ornare leo
-          luctus. Morbi vehicula, nulla eu tempor interdum, nibh elit congue
-          tellus, ac vulputate urna lorem nec nisi. Morbi id consequat quam.
-          Vivamus accumsan dui in facilisis aliquet.,
+          Aside from my professional work, I enjoy learning new skills and
+          technologies, watching movies, and spending time in nature. I started
+          this blog as a way to share my knowledge and experiences with others,
+          and to continue learning and growing in my own career.
         </p>
         <p>
-          Etiam nec lectus urna. Sed sodales ultrices dapibus. Nam blandit
-          tristique risus, eget accumsan nisl interdum eu. Aenean ac accumsan
-          nisi. Nunc vel pulvinar diam. Nam eleifend egestas viverra. Donec
-          finibus lectus sed lorem ultricies, eget ornare leo luctus. Morbi
-          vehicula, nulla eu tempor interdum, nibh elit congue tellus, ac
-          vulputate urna lorem nec nisi. Morbi id consequat quam. Vivamus
-          accumsan dui in facilisis aliquet.,
+          If you have any questions, feedback, or suggestions, feel free to
+          contact me through my website or social media platforms. Thank you for
+          stopping by!
         </p>
+        <div className="flex pt-4">
+          <a
+            href="https://www.linkedin.com/in/boban-senic-884b79195/"
+            className="bg-black text-white rounded-lg px-4 py-2 mr-2"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://www.facebook.com/orderbusinesswebsite"
+            className="bg-black text-white rounded-lg px-4 py-2 mr-2"
+          >
+            Facebook
+          </a>
+          <a
+            href="https://dev.bobansenic.com/"
+            className="bg-black text-white rounded-lg px-4 py-2"
+          >
+            Website
+          </a>
+        </div>
       </div>
     </>
   );
