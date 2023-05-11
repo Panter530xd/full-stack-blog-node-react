@@ -19,7 +19,7 @@ admin.initializeApp({
 
 app.use(express.static(path.join(__dirname, "../../my-blog/dist")));
 app.get(/^(?!\/api).+/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../../my-blog/distindex.html"));
+  res.sendFile(path.join(__dirname, "../../my-blog/dist/index.html"));
 });
 
 app.use(async (req, res, next) => {
