@@ -30,7 +30,7 @@ const ArticlePage = () => {
   const { user, isLoading } = useUser();
 
   const api = axios.create({
-    baseURL: "https://full-stack-blog-with-react-and-node-js.onrender.com",
+    baseURL: "https://full-stack-react-node-blog.onrender.com/",
   });
 
   useEffect(() => {

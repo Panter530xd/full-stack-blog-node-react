@@ -11,7 +11,7 @@ app.use(cors());
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-console.log(process.env.FIREBASE_CREDENTIALS);
+
 const credentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
 
 admin.initializeApp({
