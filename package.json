@@ -1,6 +1,6 @@
 {
   "scripts": {
     "postinstall": "cd my-blog && npm install && npm run build && cd ../my-blog-backend && npm install",
-    "start":"node ./my-blog-backend/src/server.js"
+    "start":"cd ./my-blog-backend && npm start"
   }
 }
