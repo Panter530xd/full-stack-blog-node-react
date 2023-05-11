@@ -21,6 +21,7 @@ const AddCommnetForm = ({
   const [commentText, setcommentText] = useState("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const { user } = useUser();
+
   const api = axios.create({
     baseURL: "https://full-stack-react-node-blog.onrender.com/",
   });
@@ -59,15 +60,18 @@ const AddCommnetForm = ({
 
   return (
     <div id="add-comment-form">
-      <h2>Add Comment</h2>
-      <form onSubmit={addComment}>
+      <h2 className="text-2xl font-bold">Add Comment</h2>
+      <form onSubmit={addComment} className="flex flex-col justify-center">
         {user && <p>You are posting as {user.email}</p>}
         <textarea
+          className="w-full"
           value={commentText}
           onChange={(e) => setcommentText(e.target.value)}
         />
         {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
-        <button type="submit">Submit</button>
+        <div className=" w-full mt-5">
+          <button className="bg-black text-white w-full">Submit</button>
+        </div>
       </form>
     </div>
   );

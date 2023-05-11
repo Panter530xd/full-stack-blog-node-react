@@ -80,9 +80,9 @@ nav a:hover {
 input,
 textarea {
   display: block;
-  width: 300px;
-  padding: 8px;
-  border-radius: 8px;
+  width: 400px;
+  padding: 20px;
+  border-radius: 5px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 18px;
   border: 2px solid black;
@@ -95,9 +95,9 @@ textarea {
   background-color: pink;
 }
 
-#add-comment-form button {
+/* #add-comment-form button {
   width: 320px;
-}
+} */
 
 #upvotes-section button,
 p {

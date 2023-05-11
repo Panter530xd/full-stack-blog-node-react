@@ -65,18 +65,19 @@ const ArticlePage = () => {
     return <NotFoundPage />;
   }
   return (
-    <div>
-      <h1>{article?.title}</h1>
-      <div className="upvotes-section">
+    <div className=" py-10">
+      <h2 className="text-3xl font-bold my-4">{article?.title}</h2>
+      <div className="upvotes-section py-5 flex items-center">
         {user ? (
-          <button onClick={addUpvote}>
+          <button className="text-white" onClick={addUpvote}>
             {canUpvote ? "Upvote" : "Already Upvoted"}
           </button>
         ) : (
-          <button>Log in to upvote</button>
+          <button className="text-white">Log in to upvote</button>
         )}
-        <p style={{ marginLeft: "10px" }}>
-          This is Article has {articleInfo.upvotes} upvote(s)
+        <p className="ml-2 font-semibold">
+          This is Article has{" "}
+          <span className="font-bold">{articleInfo.upvotes}</span> upvote(s)
         </p>
       </div>
 
@@ -91,7 +92,7 @@ const ArticlePage = () => {
           }
         />
       ) : (
-        <button>Log in to add a comment</button>
+        <button className="text-white">Log in to add a comment</button>
       )}
       <CommentList comments={articleInfo.comments} />
     </div>

@@ -19,6 +19,7 @@ admin.initializeApp({
 });
 
 app.use(express.static(path.join(__dirname, "../../my-blog/dist")));
+
 app.get(/^(?!\/api).+/, (req, res) => {
   res.sendFile(path.join(__dirname, "../../my-blog/dist/index.html"));
 });
