@@ -6,7 +6,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   return (
     <nav>
-      <ul>
+      <ul className="">
         <li>
           <Link to="/">Home</Link>
         </li>

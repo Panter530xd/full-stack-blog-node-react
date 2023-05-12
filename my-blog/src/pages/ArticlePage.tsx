@@ -7,6 +7,9 @@ import CommentList from "../components/CommentsList";
 import useUser from "../hooks/useUser";
 import AddCommentForm from "../components/AddCommentForm";
 
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vs } from "react-syntax-highlighter/dist/esm/styles/prism";
+
 type ArticleInfo = {
   upvotes: number;
   comments: { postedBy: string; text: string }[];
@@ -80,10 +83,16 @@ const ArticlePage = () => {
           <span className="font-bold">{articleInfo.upvotes}</span> upvote(s)
         </p>
       </div>
+      <div className="text-lg text-center">
+        {article?.content?.map((paragraph: string, i) => (
+          <div key={i} className="code-container">
+            <SyntaxHighlighter language="typescript" style={vs}>
+              {paragraph}
+            </SyntaxHighlighter>
+          </div>
+        ))}
+      </div>
 
-      {article?.content?.map((paragraph: string, i) => (
-        <p key={i}>{paragraph}</p>
-      ))}
       {user ? (
         <AddCommentForm
           articleName={id}

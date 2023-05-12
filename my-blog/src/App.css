@@ -115,3 +115,25 @@ p {
   top: 8px;
   right: 8px;
 }
+
+.code-container {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+@media only screen and (max-width: 600px) {
+  nav li {
+    display: inline-block;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+  }
+}
