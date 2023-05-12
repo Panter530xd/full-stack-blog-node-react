@@ -1,7 +1,7 @@
 const AboutPage = () => {
   return (
     <>
-      <div className="py-10">
+      <div className="py-10 w-11/12 mx-auto">
         <h2 className="text-4xl font-bold py-4">About Me</h2>
         <p className="text-lg">
           Hi there! My name is{" "}

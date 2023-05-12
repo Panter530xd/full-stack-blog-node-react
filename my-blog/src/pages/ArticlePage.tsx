@@ -68,11 +68,11 @@ const ArticlePage = () => {
     return <NotFoundPage />;
   }
   return (
-    <div className=" py-10">
+    <div className=" py-10 w-11/12 mx-auto">
       <h2 className="text-3xl font-bold my-4">{article?.title}</h2>
       <div className="upvotes-section py-5 flex items-center">
         {user ? (
-          <button className="text-white" onClick={addUpvote}>
+          <button className="text-white whitespace-nowrap" onClick={addUpvote}>
             {canUpvote ? "Upvote" : "Already Upvoted"}
           </button>
         ) : (

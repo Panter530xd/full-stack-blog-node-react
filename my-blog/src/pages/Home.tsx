@@ -1,6 +1,6 @@
 const HomePage = () => (
   <>
-    <div className="py-10">
+    <div className="py-10 w-11/12 mx-auto">
       <h1 className="text-4xl font-bold py-4">Welcome to my blog!</h1>
       <p>
         I write about my experiences and learnings in web development, and in

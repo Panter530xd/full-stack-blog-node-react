@@ -136,4 +136,10 @@ p {
     padding: 10px;
     text-align: left;
   }
+  nav {
+    text-align: left;
+  }
+  button {
+    padding: 10;
+  }
 }
