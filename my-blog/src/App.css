@@ -20,7 +20,6 @@ h4 {
 
 nav {
   border-bottom: 4px solid black;
-  text-align: center;
   position: fixed;
   top: 0;
   width: 100%;
@@ -44,6 +43,7 @@ nav a {
   color: black;
   font-weight: bold;
   padding: 24px 32px;
+  text-align: center;
 }
 
 nav a:hover {
@@ -110,12 +110,6 @@ p {
   padding: 16px;
 }
 
-.nav-right {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-}
-
 .code-container {
   white-space: pre-wrap;
   word-break: break-all;
@@ -136,10 +130,16 @@ p {
     padding: 10px;
     text-align: left;
   }
-  nav {
-    text-align: left;
-  }
+
   button {
     padding: 10;
+  }
+  input,
+  textarea {
+    display: block;
+    width: 300px;
+  }
+  button {
+    white-space: nowrap;
   }
 }
