@@ -1,18 +1,19 @@
 import admin from "firebase-admin";
-import express from "express";
-import { db, connectToDb } from "./db.js";
+import express, { Request } from "express";
+import { db, connectToDb } from "./db";
 import cors from "cors";
 import path from "path";
 import "dotenv/config";
-import { fileURLToPath } from "url";
+import { DecodedIdToken } from "firebase-admin/auth";
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+interface RequestWithUser extends Request {
+  user?: DecodedIdToken;
+}
 
-const credentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+const credentials = JSON.parse(process.env.FIREBASE_CREDENTIALS!);
 
 admin.initializeApp({
   credential: admin.credential.cert(credentials),
@@ -24,21 +25,27 @@ app.get(/^(?!\/api).+/, (req, res) => {
   res.sendFile(path.join(__dirname, "../../my-blog/dist/index.html"));
 });
 
-app.use(async (req, res, next) => {
+app.use(async (req: RequestWithUser, res, next) => {
+  // VALIDATE WITH ZOD - OR WITH IF
   const { authtoken } = req.headers;
+
   if (authtoken) {
     try {
-      req.user = await admin.auth().verifyIdToken(authtoken);
+      req.user = await admin.auth().verifyIdToken(authtoken as string);
     } catch (error) {
       return res.sendStatus(400);
     }
   }
-  req.user = req.user || {};
   next();
 });
 
-app.get("/api/article/:name", async (req, res) => {
+app.get("/api/article/:name", async (req: RequestWithUser, res) => {
   const { name } = req.params;
+
+  if (!req.user) {
+    return res.json("404");
+  }
+
   const { uid } = req.user;
 
   const article = await db.collection("article").findOne({ name });
@@ -52,7 +59,7 @@ app.get("/api/article/:name", async (req, res) => {
   }
 });
 
-app.use((req, res, next) => {
+app.use((req: RequestWithUser, res, next) => {
   if (req.user) {
     next();
   } else {
@@ -60,8 +67,12 @@ app.use((req, res, next) => {
   }
 });
 
-app.put("/api/article/:name/upvote", async (req, res) => {
+app.put("/api/article/:name/upvote", async (req: RequestWithUser, res) => {
   const { name } = req.params;
+
+  if (!req.user) {
+    return res.json("404");
+  }
   const { uid } = req.user;
 
   const article = await db.collection("article").findOne({ name });
@@ -87,9 +98,14 @@ app.put("/api/article/:name/upvote", async (req, res) => {
   }
 });
 
-app.post("/api/article/:name/comments", async (req, res) => {
+app.post("/api/article/:name/comments", async (req: RequestWithUser, res) => {
   const { name } = req.params;
   const { text } = req.body;
+
+  if (!req.user) {
+    return res.json("404");
+  }
+
   const { email } = req.user;
 
   await db.collection("article").updateOne(

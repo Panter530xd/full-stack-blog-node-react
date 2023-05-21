@@ -1,8 +1,8 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, Db } from "mongodb";
 
-let db;
+let db: Db;
 
-async function connectToDb(cb) {
+async function connectToDb(cb: () => void) {
   const client = new MongoClient(
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.dl1a14k.mongodb.net/?retryWrites=true&w=majority`
   );

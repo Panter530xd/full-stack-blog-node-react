@@ -142,4 +142,8 @@ p {
   button {
     white-space: nowrap;
   }
+  nav a:hover {
+    background: none;
+    color: black;
+  }
 }
